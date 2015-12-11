@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+  window.addEventListener('WebComponentsReady', function() {
+    supersonic.app.splashscreen.hide();
+  });
+  </script>
+  <!-- Cloud resource definition file for Supersonic Data -->
+  <script src="/cloud-resources.js"></script>
+  <meta charset="utf8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  <title>advisorinput</title>
+
+  <link rel="stylesheet" href="/components/supersonic/css/supersonic.css" />
+  <link rel="stylesheet" href="/app/common/stylesheets/application.css" />
+  <link rel="import" href="/components/supersonic/components/import.html">
+
+  <script src="http://localhost/cordova.js"></script>
+  <script src="/components/steroids-js/steroids.js"></script>
+  <script src="/components/angular/angular.js"></script>
+  <script src="/components/supersonic/supersonic.js"></script>
+  <script src="/components/webcomponentsjs/webcomponents.js"></script>
+  <script src="//www.parsecdn.com/js/parse-1.6.7.min.js"></script>
+
+  <script>
+  Parse.initialize("s0bBxGQmofmKGs4hKvgURP4nDYQJmNFblcRUXXh2", "GKf1pBCOMnq8GVc9WuEcEuzSBMgnSU5NesxtnqCB");</script>
+
+  
+  <script src="/app/common.js"></script>
+  
+  <script src="/app/example.js"></script>
+  
+</head>
+<body ng-app="example">
+
+<div class="padding" ng-controller="AdvisorInputController">
+
+	<form novalidate class="simple-form">
+        
+        <div class="item item-divider label-dark-advisor">
+           <span class="input-label label-dark-advisor">Suggestion for {{curr_event.get('title')}} @ 
+            	 <span ng-bind="curr_event.get('time') | date: 'shortTime'"></span>
+            </span>
+            <div ng-show="curr_event.get('additional')">
+            <span> {{curr_event.get('author').get('username')}}'s Preferences: </span>
+            <span ng-bind="curr_event.get('additional')"></span>
+            </div>
+        </div>
+        
+    <div>    
+    <label class="item item-input item-select" ng-show="suggestions.length > 0">
+        <span class="input-label"> 
+            <div ng-hide="responded.value" style="font-size:13px">Select Existing Suggestion:</div>
+            <div ng-show="responded.value">My Suggestion:</div>
+        
+        </span>
+            <select ng-options= "sugg as sugg.title for sugg in suggestions track by sugg.id" id="dropdown" ng-model="selected">
+        </select>
+      </label>
+      <label class="item item-input">
+        <span class="input-label" ng-hide="responded.value"><b ng-show="suggestions.length > 0">OR</b> Enter New Suggestion:</span>
+        <span class="input-label" ng-show="responded.value"><b ng-show="suggestions.length > 0">OR</b> Update My Suggestion:</span>
+             <input type="text" id="suggestionInput" ng-model="advisor.suggestion" />
+      </label>
+        
+        <div class="item item-divider label-dark-advisor">
+           <span class="input-label label-dark-advisor" ng-hide="responded.value">Tip:</span>
+            <span class="input-label label-dark-advisor" ng-show="responded.value">My Tip:</span>
+                    </div>
+             <label class="item item-input">
+                   <textarea id="tipInput" cols="40" rows="5" type="text" ng-model="advisor.tip"></textarea>
+                </label>
+     </div>
+
+        <br>
+	    <button ng-click="saveResponse()" class="button button-dark-advisor">Done</button>
+        <button ng-click="back()" class="button button-light-blue" id="cancelButton">Cancel</button>
+        
+	</form>
+
+</div> 
+
+
+</body>
+</html>

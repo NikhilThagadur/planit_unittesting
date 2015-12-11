@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+  window.addEventListener('WebComponentsReady', function() {
+    supersonic.app.splashscreen.hide();
+  });
+  </script>
+  <!-- Cloud resource definition file for Supersonic Data -->
+  <script src="/cloud-resources.js"></script>
+  <meta charset="utf8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  <title>new</title>
+
+  <link rel="stylesheet" href="/components/supersonic/css/supersonic.css" />
+  <link rel="stylesheet" href="/app/common/stylesheets/application.css" />
+  <link rel="import" href="/components/supersonic/components/import.html">
+
+  <script src="http://localhost/cordova.js"></script>
+  <script src="/components/steroids-js/steroids.js"></script>
+  <script src="/components/angular/angular.js"></script>
+  <script src="/components/supersonic/supersonic.js"></script>
+  <script src="/components/webcomponentsjs/webcomponents.js"></script>
+  <script src="//www.parsecdn.com/js/parse-1.6.7.min.js"></script>
+
+  <script>
+  Parse.initialize("s0bBxGQmofmKGs4hKvgURP4nDYQJmNFblcRUXXh2", "GKf1pBCOMnq8GVc9WuEcEuzSBMgnSU5NesxtnqCB");</script>
+
+  
+  <script src="/app/common.js"></script>
+  
+  <script src="/app/example.js"></script>
+  
+</head>
+<body ng-app="example">
+
+<div class="padding" ng-controller="TemplateController">
+
+<form>
+        <div class="list">
+        <div class="item item-divider label-dark">
+            Travel Plans
+        </div>
+        <label class="item item-input">
+            <span class="input-label">
+                <span ng-show="missingCity" style="color:red;">Required* </span>
+                City:</span>
+            <input type="text" id="city" ng-model="template.city">
+        </label>
+    </div>
+    <button class="button button-block button-light" ng-click="submitForm()" id="saveButton"><h3>Save</h3></button>
+    <button class="button button-block button-darker" ng-click="goBack()" id="cancelButton"><h3>Cancel</h3></button>
+    </form>
+</div>
+
+
+</body>
+</html>

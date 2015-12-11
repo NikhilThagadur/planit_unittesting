@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+  window.addEventListener('WebComponentsReady', function() {
+    supersonic.app.splashscreen.hide();
+  });
+  </script>
+  <!-- Cloud resource definition file for Supersonic Data -->
+  <script src="/cloud-resources.js"></script>
+  <meta charset="utf8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  <title>response</title>
+
+  <link rel="stylesheet" href="/components/supersonic/css/supersonic.css" />
+  <link rel="stylesheet" href="/app/common/stylesheets/application.css" />
+  <link rel="import" href="/components/supersonic/components/import.html">
+
+  <script src="http://localhost/cordova.js"></script>
+  <script src="/components/steroids-js/steroids.js"></script>
+  <script src="/components/angular/angular.js"></script>
+  <script src="/components/supersonic/supersonic.js"></script>
+  <script src="/components/webcomponentsjs/webcomponents.js"></script>
+  <script src="//www.parsecdn.com/js/parse-1.6.7.min.js"></script>
+
+  <script>
+  Parse.initialize("s0bBxGQmofmKGs4hKvgURP4nDYQJmNFblcRUXXh2", "GKf1pBCOMnq8GVc9WuEcEuzSBMgnSU5NesxtnqCB");</script>
+
+  
+  <script src="/app/common.js"></script>
+  
+  <script src="/app/example.js"></script>
+  
+</head>
+<body ng-app="example">
+
+<div class="padding" ng-controller="ResponseController">
+
+  <super-navbar>
+    <super-navbar-title ng-bind="itenary.get('title')"></super-navbar-title>
+      
+  </super-navbar>
+    
+<form>
+	<div ng-repeat = "event in events" > 
+        <div class="list card">
+            <span style="display: inline;">
+                <div style="float:left" class="item item-divider col col-25 col-offset-0 label-padding button-light-blue">
+                    <span ng-bind="event.get('time') | date: 'shortTime'"></span>
+                </div>
+
+                <div style="font-weight:bold; font-size:18px;" class="item item-divider col col-75 col-offset-25 label-dark-advisor label-padding" ng-click="giveResponse(event.id)"> 
+                      Ideas for
+                      <span ng-bind="event.get('title')" ></span>
+                </div>
+            </span>
+        
+        </div>
+
+	</div>
+    <!-- <button  style="margin-top:2%;" class="button button-positive button-dark" ng-click="submitResponse()" ng-show="tips.length > 0">Submit Response</button> -->
+    <button  style="margin-top:2%;" class="button button-positive button-dark-advisor" ng-click="submitResponse()">Submit Response</button>
+</form>  
+</div>
+
+
+</body>
+</html>

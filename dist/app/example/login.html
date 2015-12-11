@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+  window.addEventListener('WebComponentsReady', function() {
+    supersonic.app.splashscreen.hide();
+  });
+  </script>
+  <!-- Cloud resource definition file for Supersonic Data -->
+  <script src="/cloud-resources.js"></script>
+  <meta charset="utf8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  <title>login</title>
+
+  <link rel="stylesheet" href="/components/supersonic/css/supersonic.css" />
+  <link rel="stylesheet" href="/app/common/stylesheets/application.css" />
+  <link rel="import" href="/components/supersonic/components/import.html">
+
+  <script src="http://localhost/cordova.js"></script>
+  <script src="/components/steroids-js/steroids.js"></script>
+  <script src="/components/angular/angular.js"></script>
+  <script src="/components/supersonic/supersonic.js"></script>
+  <script src="/components/webcomponentsjs/webcomponents.js"></script>
+  <script src="//www.parsecdn.com/js/parse-1.6.7.min.js"></script>
+
+  <script>
+  Parse.initialize("s0bBxGQmofmKGs4hKvgURP4nDYQJmNFblcRUXXh2", "GKf1pBCOMnq8GVc9WuEcEuzSBMgnSU5NesxtnqCB");</script>
+
+  
+  <script src="/app/common.js"></script>
+  
+  <script src="/app/example.js"></script>
+  
+</head>
+<body ng-app="example">
+
+<div ng-controller= "LoginController" class="container padding">
+    
+  <form ng-show="scenario == 'Sign up'" role="form">
+    <div style="font-size:5em; text-align:center; margin-top:23%;">
+            Holiday
+        </div>
+        <br>
+        <br>
+        <div style="font-size:5em; text-align:center;">
+            PlanIt
+        </div> 
+    <br>
+    <br>
+    <br>
+      <div class="list list-inset">
+            <label class="item item-input form-group">
+                <input type="email" class="form-control" ng-model="user.email" id="email" placeholder="Email">
+            </label>
+            <label class="item item-input form-group">
+                <input type="text" class="form-control" ng-model="user.username" id="userName" placeholder="Username">
+            </label>
+            <label class="item item-input form-group">
+                <input type="password" class="form-control" ng-model="user.password" id="pwd" placeholder="Password"/>
+            </label>
+        </div>
+      
+      <button style="font-size: 1.5em; text-align:center;" id="signup" class="button button-block button-light" ng-click="signUp(user)">
+            Sign Up
+        </button>
+       <button style="margin-top:26%; text-align:center; margin-left:40%;" id="login" ng-click='scenario="Log in"' class="button button-dark">
+            Log In 
+        </button>
+  </form>
+
+
+    <div ng-show="currentUser">
+      <h1 style="margin-top:7%; horizontal-align:middle;">Welcome {{currentUser.get('username')}}</h1>
+      
+      <div style="margin-top:7%; font-size:2em; line-height:27px;">
+        <p style="margin-top:10%;">You have been successfully logged in</p>
+        <p style="margin-top:10%;">Continue as...</p>
+      </div>
+
+      <super-navigate location="example#getting-started">
+          <button class="button button-block button-light" id="traveler"><h3>Traveler</h3></button>
+      </super-navigate>
+
+      <super-navigate location="example#feed">
+          <button class="button button-block button-light" id="advisor"><h3>Advisor</h3></button>
+      </super-navigate>
+      
+        
+        <button style="margin-top:60%; text-align:center; margin-left:40%;" id="logout" ng-click='logOut()' class="button button-dark">
+            Log Out
+        </button>
+      
+    </div>
+
+
+    <form ng-show="scenario == 'Log in'" role="form">
+        <div style="font-size:5em; text-align:center; margin-top:23%;">
+            Holiday
+        </div>
+        <br>
+        <br>
+        <div style="font-size:5em; text-align:center;">
+            PlanIt
+        </div> 
+        <br>
+        <br>
+        <br>
+        <div class="list list-inset">
+            <label class="item item-input form-group">
+                <input class="form-control" type="text" ng-model="user.username" id="usrName" placeholder="Username"/>
+            </label>
+            <label class="item item-input form-group">
+                <input type="password" class="form-control" ng-model="user.password" id="pwd1" placeholder="Password">
+            </label>
+        </div>
+
+        <button style="font-size: 1.5em; text-align:center;" class="button button-block button-light" id="loginbutton" ng-click="logIn(user)">
+            Log in
+        </button>
+        <button style="margin-top:40%; text-align:center; margin-left:40%;" ng-click='scenario="Sign up"' id="signup" class="button button-dark">
+            Sign up 
+        </button>
+    </form>
+  
+</div>
+
+
+</body>
+</html>
