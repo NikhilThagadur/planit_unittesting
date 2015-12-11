@@ -1,0 +1,23 @@
+<div class="padding" ng-controller="GettingStartedController">
+
+  <super-navbar>
+    <super-navbar-title>
+      Traveler
+    </super-navbar-title>
+    <super-navbar-button side="right" location="example#new"> <b id="plus">ADD</b></super-navbar-button>
+  </super-navbar>
+    
+<super-navigate location="example#customize" ng-repeat="itenerary in iterneraries" data-params-id="{{itenerary.id}}">
+    <button class="button button-block button-dark"><h3 style="color:#FFFFFF" ng-bind="itenerary.get('title')"></h3></button>
+    </super-navigate>
+    
+    <div ng-show="iterneraries.length == 0">
+        <p style="margin-top:10%; font-size:2em;">
+            No personal itineraries 
+        </p>
+        <p style="margin-top:2%; font-size:2em;">
+            Click 'ADD' 
+        </p>
+    </div>
+
+</div>

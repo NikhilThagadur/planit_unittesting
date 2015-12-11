@@ -1,0 +1,42 @@
+<div class="padding" ng-controller="NewEventController">
+    
+    <form>
+        <div class="list">
+            
+                 <div class="item item-divider label-dark">
+            <span class="input-label label-dark">What are you looking for...?</span>
+                    </div>
+            <label class="item item-input item-select">
+                <span class="input-label">Looking for: </span>
+                <select ng-options= "idea as idea.title for idea in ideas track by idea.id" id="dropdown" ng-model="selected">
+                </select>
+              </label>
+                    
+                 <div class="item item-divider label-dark">
+            <span class="input-label label-dark">Didn't find in above list, Type in here:</span>
+                    </div>
+             <label class="item item-input">
+                    <input type="text" id="eventName" ng-model="event.title">
+                </label>
+
+                  <div class="item item-divider label-dark">
+             <span class="input-label label-dark">
+                 <span ng-show="missingTime" style="color:red;">Required* </span>
+                 When do you plan to go...?</span>
+                    </div>
+             <label class="item item-input">
+                    <input type="time" id="time" ng-model="event.time">
+                </label>
+
+                <div class="item item-divider label-dark">
+           <span class="input-label label-dark">Additional Preferences:</span>
+                    </div>
+             <label class="item item-input">
+                   <textarea cols="40" rows="5" type="text" id="additional" ng-model="event.additional"></textarea>
+                </label>
+                <br>
+            <button ng-click="submitEvent()" class="button button-light" id="doneButton">Done</button>
+            <button ng-click="back()" class="button button-darker" id="cancelButton">Cancel</button>
+        </div>
+    </form>
+</div>

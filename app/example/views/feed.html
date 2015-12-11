@@ -1,0 +1,17 @@
+<div class="padding" ng-controller="FeedController">
+
+  <super-navbar>
+    <super-navbar-title>
+      Advisor Feed
+    </super-navbar-title>
+  </super-navbar>
+    
+<super-navigate location="example#response" ng-repeat="itenerary in ites" data-params-id="{{itenerary.id}}">
+    <button class="button button-block button-dark-advisor">
+        {{itenerary.get('author').get('username')}}'s Trip to 
+        <b style="font-size:20px">{{itenerary.get('title')}}</b>
+      <!--  <h3 style="color:#FFFFFF" ng-bind="itenerary.get('title')"></h3> -->
+    </button>
+    </super-navigate>
+
+</div>

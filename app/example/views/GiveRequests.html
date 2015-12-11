@@ -1,0 +1,13 @@
+<div class="padding" ng-controller="GettingStartedController">
+
+  <super-navbar>
+    <super-navbar-title>
+      Plan It Holiday
+    </super-navbar-title>
+  </super-navbar>
+    
+<super-navigate location="example#customize" ng-repeat="itenerary in iterneraries" data-params-id="{{itenerary.id}}">
+    <button class="button button-block button-positive"><h3 style="color:#FFFFFF" ng-bind="itenerary.get('title')"></h3></button>
+    </super-navigate>
+
+</div>

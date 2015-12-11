@@ -1,0 +1,149 @@
+<div class="padding" ng-controller="customizeController">
+
+  <super-navbar>
+    <super-navbar-title ng-bind="itenary.get('title')"></super-navbar-title>
+        
+    </super-navbar-title>
+  </super-navbar>
+
+  <button class="button button-block button-positive" ng-click="showDetails = ! showDetails"> 
+      <i class="icon-left super-arrow-down-b" id="arrow"></i>
+      Breakfast</button>
+    <div class="procedure-details" ng-class="{ 'hidden': ! showDetails }">
+        <div class="item item-button-left">
+    IMbi Parsar
+    <button class="button button-positive" >
+      <i class="icon-left super-arrow-down-b"id="arrow"></i>
+    </button>
+  </div>
+
+
+<div class="item item-button-left">
+    Imbi Road Pork Ball Noodle 
+    <button class="button button-positive" ng-click="showDetailsPorkBall = ! showDetailsPorkBall">
+      <i class="icon-left super-arrow-down-b"id="arrow"></i>
+    </button>
+  </div>
+        
+        
+        <div class="procedure-details" ng-class="{'hidden': ! showDetailsPorkBall }">
+            <div class="card">
+                <div class="item item-divider">
+                    
+      			ABC says:<label class="checkbox">
+       				<input type="checkbox">
+    			 </label>
+                </div>
+                <div class="item item-text-wrap" >
+                    Great local foods under one roof! Try the local dish Yong Tau Foo
+                </div>
+            </div>
+            <div class="card" >
+                <div class="item item-divider">
+                    XYZ says:<label class="checkbox">
+       				<input type="checkbox">
+    			 </label>
+                </div>
+                <div class="item item-text-wrap">
+                    Be sure to go early and try the Halnan White Coffee!  
+                </div>
+            </div>
+        </div>
+    </div>
+    
+  <button class="button button-block button-positive" ng-click="showDetails1 = ! showDetails1"> 
+       <i class="icon-left super-arrow-down-b" id="arrow"></i>
+      Amusement Parks</button>
+    <div class="procedure-details" ng-class="{ 'hidden': ! showDetails1 }">
+
+<div class="item item-button-left">
+    Berjaya Times Square Theme Park
+    <button class="button button-positive" >
+      <i class="icon-left super-arrow-down-b"id="arrow"></i>
+    </button>
+  </div>
+
+<div class="item item-button-left">
+    Sunway Lagoon Theme Park
+    <button class="button button-positive" ng-click="showDetailsLagoon = ! showDetailsLagoon">
+      <i class="icon-left super-arrow-down-b"id="arrow"></i>
+    </button>
+  </div>
+         
+      
+        
+                <div class="procedure-details" ng-class="{'hidden': ! showDetailsLagoon }">
+            <div class="card" >
+                <div class="item item-divider">
+                    ABC says:
+                </div>
+                <div class="item item-text-wrap">
+                    Avoid line by purchasing ticket online!
+                </div>
+            </div>
+            <div class="card" >
+                <div class="item item-divider">
+                    XYZ says:
+                </div>
+                <div class="item item-text-wrap">
+                    Be sure to go for the indoor roller coaster and DNA machine 
+                </div>
+            </div>
+        </div>
+    </div>
+    
+  <button class="button button-block button-positive" ng-click="showDetails2 = ! showDetails2"> 
+       <i class="icon-left super-arrow-down-b" id="arrow"></i>
+      Coffee/Tea </button>
+    <div class="procedure-details" ng-class="{ 'hidden': ! showDetails2 }">
+
+<div class="item item-button-left">
+    VCR
+    <button class="button button-positive" >
+      <i class="icon-left super-arrow-down-b"id="arrow"></i>
+    </button>
+  </div>
+
+<div class="item item-button-left">
+    PULP Bangsar
+    <button class="button button-positive" ng-click="showDetailsPULP = ! showDetailsPULP">
+      <i class="icon-left super-arrow-down-b"id="arrow"></i>
+    </button>
+  </div>
+         
+        
+        
+        <div class="procedure-details" ng-class="{'hidden': ! showDetailsPULP }">
+            <div class="card" >
+                <div class="item item-divider">
+                    ABC says:<label class="checkbox">
+       				<input type="checkbox">
+    			 </label>
+                </div>
+                <div class="item item-text-wrap">
+                    One of the best cafes in KL. Try their Potato Waffle
+                </div>
+            </div>
+            <div class="card" >
+                <div class="item item-divider">
+                    XYZ says:<label class="checkbox">
+       				<input type="checkbox">
+    			 </label>
+                </div>
+                <div class="item item-text-wrap">
+                    Go to the 2nd floor for their one of a kind glasshouse seating 
+                </div>
+            </div>
+        </div>
+
+<div class="item item-button-left">
+    DR.Inc.
+    <button class="button button-positive" >
+      <i class="icon-left super-arrow-down-b"id="arrow"></i>
+    </button>
+  </div>
+        
+        
+    </div>
+</div>
+

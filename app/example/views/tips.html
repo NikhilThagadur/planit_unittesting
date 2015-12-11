@@ -1,0 +1,26 @@
+<div class="padding" ng-controller="TipsController">
+
+  <super-navbar>
+      <span ng-bind="p"></span>
+  </super-navbar>
+    
+    <div class="list" id="suggHeader">
+        <div class="item item-divider">
+            <span>Tips for </span>
+            <span ng-bind="suggestion.get('title')"></span>
+        </div>
+    </div>
+    
+    <div ng-repeat=" tip in tips">
+        <div ng-show="tip.get('published') == true">
+        <div class="card">
+            <div class="item item-divider label-dark" style="padding-bottom=5px;">
+                <span ng-bind="tip.get('author').get('username')"></span>
+                <span> says: </span>
+            </div>
+            <div class="item item-text-wrap" ng-bind="tip.get('title')">
+            </div>  
+        </div>
+        </div>
+    </div>
+</div>

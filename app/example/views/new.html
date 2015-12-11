@@ -1,0 +1,18 @@
+<div class="padding" ng-controller="TemplateController">
+
+<form>
+        <div class="list">
+        <div class="item item-divider label-dark">
+            Travel Plans
+        </div>
+        <label class="item item-input">
+            <span class="input-label">
+                <span ng-show="missingCity" style="color:red;">Required* </span>
+                City:</span>
+            <input type="text" id="city" ng-model="template.city">
+        </label>
+    </div>
+    <button class="button button-block button-light" ng-click="submitForm()" id="saveButton"><h3>Save</h3></button>
+    <button class="button button-block button-darker" ng-click="goBack()" id="cancelButton"><h3>Cancel</h3></button>
+    </form>
+</div>

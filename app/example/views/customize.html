@@ -1,0 +1,74 @@
+<div class="padding" ng-controller="customizeController">
+  <super-navbar>
+    <super-navbar-title ng-bind="itenary.get('title')"></super-navbar-title>
+      <super-navbar-button side="right" location="example#newEvent" data-params-id="{{itenary.id}}"> <b id="plus">ADD</b></super-navbar-button>
+  </super-navbar>
+    
+    <div ng-show="events.length == 0">
+        <p style="margin-top:10%; font-size:2em;">
+            No events added yet
+        </p>
+        <p style="margin-top:2%; font-size:2em;">
+            Click 'ADD' 
+        </p>
+    </div>
+
+    <div ng-repeat = "event in events" > 
+        <div class="list card">
+        <span style="display: inline;">
+            <div style="float:left" class="item item-divider col col-25 col-offset-0 label-padding button-light">
+                <span ng-bind="event.get('time') | date: 'shortTime'"></span>
+            </div>
+
+            <div ng-click="updateEvent(event.id,event.get('published'))" style="font-weight:bold; font-size:18px;" class="item item-divider col col-75 col-offset-25 label-dark label-padding"> 
+                  Ideas for
+                  <span ng-bind="event.get('title')" ></span>
+            </div>
+        </span>
+        
+        <div ng-show="event.get('isChosen')">
+            <div>
+                <i style="font-size:28px; margin-left:0.3cm;" class="super-ios-checkmark"></i>
+                <super-navigate data-params-id="{{event.get('chosen').id}}" location="example#tips">
+                    <button ng-show="event.get('chosen').get('tips').length > 0">
+                        <i class="icon super-chatboxes" ></i>
+                        </button>
+                </super-navigate>
+                <span style="font-size:18px;" ng-bind="event.get('chosen').get('title')"> </span>
+
+            </div>
+            <button style="float:right;" class="button button-small button-outline button-positive" ng-click="showAll(event.id)">Show All</button> 
+        </div>
+        
+
+        <div ng-hide="event.get('isChosen')">
+            <div ng-repeat = "suggestion in event.get('suggestions') | limitTo : event.get('listLimit')"> 
+                <div ng-show="suggestion.get('published') == true">
+                <div class="list" ng-class="{'textred': suggestion.get('isSaved')}">
+                    <i style="font-size:28px; margin-left:0.3cm;" ng-show="suggestion.get('isSaved') == false" class="super-ios-circle-outline" ng-click="saveSuggestion(suggestion.id,event.id)"></i>
+                    <i style="font-size:28px; margin-left:0.3cm;" ng-show="suggestion.get('isSaved') == true" ng-click="clearSuggestion(suggestion.id)" class="super-ios-checkmark"></i>
+                    <super-navigate data-params-id="{{suggestion.id}}" location="example#tips">
+                        <button ng-show="suggestion.get('tips').length > 0">
+                        <i class="icon super-chatboxes" ></i>
+                        </button>
+                    </super-navigate>
+                    <span style="font-size:18px;" 
+                          ng-bind="suggestion.get('title')"> </span>
+                    
+                </div>
+                </div>
+            </div>
+            <button style="float:right;" class="button button-small button-outline button-positive" ng-click="showMore(event.id)" ng-show="(event.get('suggestions').length != event.get('listLimit')) && (event.get('suggestions').length > 2)">
+                <i class="super-arrow-down-b" style="font-size:18px;" ></i>
+            </button>
+           <button style="float:right;" class="button button-small button-outline button-positive" ng-click="showLess(event.id)" ng-show="event.get('listLimit') > 2">
+               <i class="super-arrow-up-b" style="font-size:18px;" ></i>
+            </button>  
+        </div>
+            
+    </div>
+   </div>
+        <button class="button button-light" ng-click="submitRequest()" ng-show="(events.length > 0) && (events[0].get('published') == false)">
+            Submit Request 
+        </button>
+</div> 

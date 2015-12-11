@@ -1,0 +1,33 @@
+<div class="padding" ng-controller="UpdateEventController">
+   
+    <form>
+        <div class="list">
+                    
+                 <div class="item item-divider label-dark">
+            <span class="input-label label-dark">Looking for:</span>
+                    </div>
+             <label class="item item-input">
+                    <input id="lookingForInput" type="text" ng-model="event.title">
+                </label>
+
+                  <div class="item item-divider label-dark">
+             <span class="input-label label-dark">
+                 <span ng-show="missingTime" style="color:red;">Required* </span>
+                 When do you plan to go...?</span>
+                    </div>
+             <label class="item item-input">
+                    <input id="time" type="time" ng-model="event.time">
+                </label>
+
+                <div class="item item-divider label-dark">
+           <span class="input-label label-dark">Additional Preferences:</span>
+                    </div>
+             <label class="item item-input">
+                   <textarea cols="40" rows="5" type="text" id="additionalPrefInput" ng-model="event.additional"></textarea>
+                </label>
+                <br>
+            <button ng-click="updateEvent()" class="button button-light" id="updateButton">Update</button>
+            <button ng-click="back()" class="button button-darker" id="cancelButton">Cancel</button>
+        </div>
+    </form>
+</div>
